@@ -16,7 +16,7 @@ export default function AugustaMallPage() {
     zip: "30909",
     phone: "+1 762 444 9461",
     hours: "Mon-Thu: 11AM-7PM, Fri-Sat: 11AM-8PM, Sun: 12PM-6PM",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/augusta.jpg-gb2Jb2dWAyZ9gJLMnMpk4uaTKs47yb.jpeg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-1rthSq43p4kpNrDLcfH1wcDlEz8SpR.jpg",
     directionsUrl:
       "https://www.google.com/maps/dir//mobile+care+augusta+mall/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x88f9d39de4ce3a31:0xb9a94f1eb818376f?sa=X&ved=1t:3061&ictx=111",
   }
@@ -26,7 +26,7 @@ export default function AugustaMallPage() {
       <Nav />
       <div className="pt-24 pb-12 bg-gradient-to-b from-white via-brand-mint/5 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-brand-dark mb-6">{location.name}</h1>
+          <h1 className="text-4xl font-bold text-brand-dark mb-6">Phone Repair Shop in Augusta Mall</h1>
           <Card className="overflow-hidden">
             <CardHeader className="p-0">
               <div className="relative h-[400px] w-full">

@@ -13,7 +13,7 @@ export function Hero() {
     {
       name: "Augusta Mall",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/augusta.jpg-gb2Jb2dWAyZ9gJLMnMpk4uaTKs47yb.jpeg",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-1rthSq43p4kpNrDLcfH1wcDlEz8SpR.jpg",
       description:
         "Our flagship store featuring expert staff and comprehensive repair services",
     },
@@ -65,12 +65,10 @@ export function Hero() {
             </div>
             {/* ✅ Fixed button - Now fully clickable & properly styled */}
             <div className="flex justify-start">
-              <Link href="/schedule-appointment" passHref>
-                <a className="relative z-10">
-                  <Button className="bg-brand-mint text-brand-dark hover:bg-brand-mintLight text-lg px-6 py-3 rounded-lg">
-                    Schedule Appointment
-                  </Button>
-                </a>
+              <Link href="/schedule-appointment" className="relative z-10">
+                <Button className="bg-brand-mint text-brand-dark hover:bg-brand-mintLight text-lg px-6 py-3 rounded-lg">
+                  Schedule Appointment
+                </Button>
               </Link>
             </div>
           </div>
