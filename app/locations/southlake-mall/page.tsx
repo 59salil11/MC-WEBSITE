@@ -25,7 +25,7 @@ export default function SouthlakeMallPage() {
       <Nav />
       <div className="pt-24 pb-12 bg-gradient-to-b from-white via-brand-mint/5 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-brand-dark mb-6">{location.name}</h1>
+          <h1 className="text-4xl font-bold text-brand-dark mb-6">Mobile Phone Repair in Southlake Mall</h1>
           <Card className="overflow-hidden">
             <CardHeader className="p-0">
               <div className="relative h-[400px] w-full">
