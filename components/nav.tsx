@@ -70,6 +70,12 @@ export function Nav() {
             >
               Services
             </Link>
+            <Link
+              href="/blog"
+              className="text-brand-dark hover:text-brand-mint transition-colors text-xl font-semibold px-4 py-2"
+            >
+              Blog
+            </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -90,9 +96,9 @@ export function Nav() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link href="/schedule-appointment">
+            <Link href="/locations">
               <Button className="bg-brand-mint text-brand-dark hover:bg-brand-mint/90 text-lg px-4 py-2">
-                Schedule Appointment
+                Find a Location
               </Button>
             </Link>
           </div>
@@ -112,6 +118,9 @@ export function Nav() {
                 <Link href="/services" className="flex w-full items-center py-3 text-xl font-semibold">
                   Services
                 </Link>
+                <Link href="/blog" className="flex w-full items-center py-3 text-xl font-semibold">
+                  Blog
+                </Link>
                 <div className="py-3">
                   <p className="text-xl font-semibold mb-2">Locations</p>
                   <div className="space-y-2 pl-4">
@@ -126,9 +135,9 @@ export function Nav() {
                     ))}
                   </div>
                 </div>
-                <Link href="/schedule-appointment" className="w-full">
+                <Link href="/locations" className="w-full">
                   <Button className="w-full bg-brand-mint text-brand-dark hover:bg-brand-mint/90">
-                    Schedule Appointment
+                    Find a Location
                   </Button>
                 </Link>
               </div>

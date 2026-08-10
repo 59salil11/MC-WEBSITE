@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Do I need an appointment for a repair?",
     answer:
-      "While walk-ins are welcome, we recommend booking an appointment to minimize your wait time. You can easily schedule a repair online or by calling your nearest Mobile Care location.",
+      "No appointment needed—walk-ins are always welcome at any Mobile Care location. If you'd like to check part availability or minimize your wait, feel free to call your nearest store ahead of your visit.",
   },
 ]
 

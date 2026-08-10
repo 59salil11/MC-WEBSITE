@@ -65,9 +65,9 @@ export function Hero() {
             </div>
             {/* ✅ Fixed button - Now fully clickable & properly styled */}
             <div className="flex justify-start">
-              <Link href="/schedule-appointment" className="relative z-10">
+              <Link href="/locations" className="relative z-10">
                 <Button className="bg-brand-mint text-brand-dark hover:bg-brand-mintLight text-lg px-6 py-3 rounded-lg">
-                  Schedule Appointment
+                  Find a Location
                 </Button>
               </Link>
             </div>

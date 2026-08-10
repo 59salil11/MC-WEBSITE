@@ -42,9 +42,9 @@ export function CTA() {
                 </div>
               </div>
             </div>
-            <Link href="/schedule-appointment">
+            <Link href="/locations">
               <Button className="bg-brand-mint text-brand-dark hover:bg-brand-mint/90 text-lg px-8 py-6">
-                Schedule a Repair
+                Find a Location
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

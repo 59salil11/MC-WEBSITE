@@ -18,14 +18,53 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://mobilecareusa.com/schedule-appointment</loc>
+  <loc>https://mobilecareusa.com/locations</loc>
   <lastmod>2025-03-03T19:28:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://mobilecareusa.com/locations</loc>
-  <lastmod>2025-03-03T19:28:44+00:00</lastmod>
+  <loc>https://mobilecareusa.com/locations/augusta-mall</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/locations/perimeter-mall</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/locations/cumberland-mall</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/locations/southlake-mall</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/locations/lynnhaven-mall</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/locations/carolina-place-mall</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/blog</loc>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/blog/top-10-mobile-phone-repair-shops-in-atlanta-georgia</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/blog/top-10-reasons-to-choose-mobile-phone-repair-in-atlanta-georgia</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/blog/top-10-iphone-repair-services-in-atlanta-georgia-for-fast-reliable-fixes</loc>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://mobilecareusa.com/blog/top-10-reasons-to-choose-an-iphone-repair-service-in-atlanta-georgia</loc>
+  <priority>0.70</priority>
 </url>
 
 

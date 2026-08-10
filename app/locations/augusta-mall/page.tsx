@@ -81,11 +81,11 @@ export default function AugustaMallPage() {
                     Call Now
                   </Button>
                   <Button
-                    onClick={() => (window.location.href = "/schedule-appointment")}
+                    onClick={() => window.open(`tel:${location.phone}`, "_blank", "noopener,noreferrer")}
                     className="w-full"
                     variant="outline"
                   >
-                    Schedule Appointment
+                    Call to Book a Repair
                   </Button>
                 </div>
               </div>

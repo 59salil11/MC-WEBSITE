@@ -202,7 +202,7 @@ export default function ServicesPage() {
     {
       question: "Do I need an appointment?",
       answer:
-        "While we welcome walk-ins, we recommend scheduling an appointment to minimize wait time. Appointments receive priority service, and we'll have the necessary parts ready for your repair. You can easily book online or call your nearest location.",
+        "No appointment is required—walk-ins are always welcome. If you'd like us to have the necessary parts ready and minimize your wait, just call your nearest Mobile Care location before stopping by.",
     },
     {
       question: "What happens if my device can't be repaired?",
@@ -280,9 +280,9 @@ export default function ServicesPage() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link href="/schedule-appointment">
+            <Link href="/locations">
               <Button size="lg" className="bg-brand-mint text-brand-dark hover:bg-brand-mintLight px-8 py-6 text-lg">
-                Schedule an Appointment
+                Find a Location
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -344,11 +344,11 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Need a Repair? Get in Touch Now!</h2>
           <p className="text-xl text-gray-300 mb-8">
-            Most repairs completed in 30-45 minutes. Schedule your repair today!
+            Most repairs completed in 30-45 minutes. Visit your nearest location today!
           </p>
-          <Link href="/schedule-appointment">
+          <Link href="/locations">
             <Button size="lg" className="bg-brand-mint text-brand-dark hover:bg-brand-mintLight px-8 py-6 text-lg">
-              Schedule an Appointment
+              Find a Location
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
