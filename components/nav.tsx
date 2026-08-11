@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, Home, ChevronDown } from "lucide-react"
+import { Menu, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -55,15 +55,6 @@ export function Nav() {
           </div>
 
           <div className="hidden md:flex items-center space-x-12">
-            <Link href="/">
-              <Button
-                variant="ghost"
-                className="text-brand-dark hover:text-brand-mint transition-colors text-xl font-semibold px-4 py-2 flex items-center space-x-2"
-              >
-                <Home className="h-5 w-5" />
-                <span>Home</span>
-              </Button>
-            </Link>
             <Link
               href="/services"
               className="text-brand-dark hover:text-brand-mint transition-colors text-xl font-semibold px-4 py-2"
@@ -111,10 +102,6 @@ export function Nav() {
             </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
-                <Link href="/" className="flex w-full items-center py-3 text-xl font-semibold">
-                  <Home className="h-5 w-5 mr-2" />
-                  Home
-                </Link>
                 <Link href="/services" className="flex w-full items-center py-3 text-xl font-semibold">
                   Services
                 </Link>

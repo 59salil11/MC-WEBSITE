@@ -4,6 +4,7 @@ import Image from "next/image"
 import { MapPin, Phone, Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { SectionHeading } from "@/components/section-heading"
 
 const locations = {
   Georgia: [
@@ -94,22 +95,24 @@ const locations = {
 
 export function Locations({ className = "" }: { className?: string }) {
   return (
-    <section className={`py-12 bg-gradient-to-b from-white via-brand-mint/10 to-white ${className}`}>
-      <div className="absolute inset-0 bg-circuit-pattern opacity-30" />
+    <section
+      className={`relative overflow-hidden bg-gradient-to-b from-white via-brand-mint/10 to-white ${className}`}
+    >
+      <div className="absolute inset-0 bg-circuit-pattern opacity-20" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-brand-dark mb-4">Our Locations</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Find a Mobile Care location near you for expert device repair and premium accessories
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Our Locations"
+          title="Find a store near you"
+          subtitle="Visit any Mobile Care location for expert device repair and premium accessories — walk-ins always welcome."
+          className="mb-16"
+        />
 
         <div className="space-y-16">
           {Object.entries(locations).map(([state, stateLocations]) => (
             <div key={state}>
               {state === "Georgia" ? (
                 <>
-                  <h3 className="text-3xl font-bold text-brand-dark mb-8">{state}</h3>
+                  <h3 className="font-display text-2xl font-bold text-brand-dark mb-8">{state}</h3>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
                     {stateLocations.map((location) => (
                       <LocationCard key={location.name} location={location} />
@@ -119,7 +122,7 @@ export function Locations({ className = "" }: { className?: string }) {
               ) : (
                 state === "Virginia" && (
                   <>
-                    <h3 className="text-3xl font-bold text-brand-dark mb-8">Virginia & North Carolina</h3>
+                    <h3 className="font-display text-2xl font-bold text-brand-dark mb-8">Virginia & North Carolina</h3>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
                       {stateLocations.map((location) => (
                         <LocationCard key={location.name} location={location} />
@@ -156,7 +159,7 @@ const LocationCard = ({ location }) => {
         </div>
         <div className="flex items-start justify-between">
           <div>
-            <CardTitle className="text-2xl font-bold text-brand-dark mb-2">{location.name}</CardTitle>
+            <CardTitle className="font-display text-2xl font-bold text-brand-dark mb-2">{location.name}</CardTitle>
             {location.details && (
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-brand-mint text-brand-dark mt-2">
                 {location.details}
