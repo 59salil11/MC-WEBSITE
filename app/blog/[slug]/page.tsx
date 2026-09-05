@@ -8,10 +8,13 @@ import { Button } from "@/components/ui/button"
 import { getArticles, getArticleBySlug, formatDate, stripLeadingTitleAndHero } from "@/lib/babylovegrowth"
 
 export const revalidate = 600
+// Generate post pages on demand (ISR) rather than all at build time. This
+// avoids bursting the BabyLoveGrowth API during the build, and new posts are
+// served + cached on their first request.
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-  const articles = await getArticles()
-  return articles.map((article) => ({ slug: article.slug }))
+  return []
 }
 
 export async function generateMetadata({
