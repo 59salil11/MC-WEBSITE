@@ -1,125 +1,149 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Clock } from "lucide-react"
 import { Nav } from "@/components/nav"
 import { Footer } from "@/components/footer"
-import { getAllPosts, getPostCategory, getReadingTime, getExcerpt } from "@/lib/blog"
+import { getArticles, isBlogConfigured, formatDate } from "@/lib/babylovegrowth"
+
+export const revalidate = 600
 
 export const metadata: Metadata = {
-  title: "Phone & iPhone Repair Blog | Mobile Care USA Atlanta, Georgia",
+  title: "Blog | Mobile Care USA — Phone, Tablet & Laptop Repair Tips",
   description:
-    "Expert guides and tips on mobile phone and iPhone repair in Atlanta, Georgia. Learn about screen repairs, battery replacement, water damage, and choosing the right repair shop.",
-  keywords: [
-    "Phone Repair Atlanta",
-    "iPhone Repair Atlanta",
-    "Mobile Phone Repair in Atlanta, Georgia",
-    "iPhone Repair Service in Atlanta, Georgia",
-    "Smartphone Repair Atlanta",
-  ],
+    "Expert advice, repair guides, and device care tips from the technicians at Mobile Care USA. Keep your phone, tablet, and laptop running like new.",
   alternates: { canonical: "https://mobilecareusa.com/blog" },
   openGraph: {
-    title: "Phone & iPhone Repair Blog | Mobile Care USA Atlanta, Georgia",
+    title: "Blog | Mobile Care USA",
     description:
-      "Expert guides and tips on mobile phone and iPhone repair in Atlanta, Georgia from the team at Mobile Care USA.",
+      "Expert advice, repair guides, and device care tips from the technicians at Mobile Care USA.",
     url: "https://mobilecareusa.com/blog",
     type: "website",
   },
 }
 
-export default function BlogPage() {
-  const posts = getAllPosts()
-  const [featured, ...rest] = posts
+export default async function BlogPage() {
+  const articles = await getArticles()
+  const configured = isBlogConfigured()
+  const [featured, ...rest] = articles
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Nav />
-
-      {/* Header */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-brand-mint/10 via-white to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-brand-mint font-semibold uppercase tracking-wide text-sm mb-3">Mobile Care Blog</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-brand-dark mb-4 text-balance">
-            Phone Repair Tips &amp; Guides for Atlanta, Georgia
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl text-pretty">
-            Expert advice on smartphone and iPhone repair, from cracked screens and battery replacement to choosing a
-            trusted local repair shop.
-          </p>
-        </div>
-      </section>
-
-      {/* Featured post */}
-      {featured && (
-        <section className="pb-4">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link
-              href={`/blog/${featured.slug}`}
-              className="group block rounded-2xl border border-gray-200 overflow-hidden hover:border-brand-mint transition-colors"
-            >
-              <div className="grid md:grid-cols-5 gap-0">
-                <div className="md:col-span-2 bg-brand-dark relative min-h-[220px] flex items-center justify-center p-8">
-                  <div className="absolute inset-0 bg-circuit-pattern opacity-10" />
-                  <span className="relative text-brand-mint text-6xl font-bold">Top 10</span>
-                </div>
-                <div className="md:col-span-3 p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="inline-flex items-center rounded-full bg-brand-mint/15 text-brand-dark text-xs font-semibold px-3 py-1">
-                      {getPostCategory(featured)}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-gray-500 text-xs">
-                      <Clock className="h-3.5 w-3.5" />
-                      {getReadingTime(featured)} min read
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-brand-mint transition-colors text-balance">
-                    {featured.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4 text-pretty">{getExcerpt(featured, 200)}</p>
-                  <span className="inline-flex items-center gap-2 text-brand-mint font-semibold">
-                    Read article
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-              </div>
-            </Link>
+      <main className="pt-24">
+        {/* Header */}
+        <section className="bg-brand-dark">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-mint">
+              The Mobile Care Blog
+            </p>
+            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white text-balance sm:text-5xl">
+              Repair guides, device tips, and tech news
+            </h1>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-300">
+              Practical advice straight from our repair technicians to help you get the most out of
+              your phone, tablet, and laptop.
+            </p>
           </div>
         </section>
-      )}
 
-      {/* Post grid */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {rest.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group flex flex-col rounded-2xl border border-gray-200 p-6 hover:border-brand-mint hover:shadow-sm transition-all"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-flex items-center rounded-full bg-brand-mint/15 text-brand-dark text-xs font-semibold px-3 py-1">
-                    {getPostCategory(post)}
-                  </span>
-                  <span className="inline-flex items-center gap-1 text-gray-500 text-xs">
-                    <Clock className="h-3.5 w-3.5" />
-                    {getReadingTime(post)} min read
-                  </span>
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          {articles.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-6 py-20 text-center">
+              <h2 className="text-2xl font-bold text-brand-dark">
+                {configured ? "New articles are on the way" : "Blog coming soon"}
+              </h2>
+              <p className="mx-auto mt-3 max-w-md text-gray-600">
+                {configured
+                  ? "We're publishing fresh repair guides and tips shortly. Check back soon."
+                  : "Our blog is being set up. Please check back soon for expert repair tips and guides."}
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-16">
+              {/* Featured post */}
+              {featured && (
+                <Link
+                  href={`/blog/${featured.slug}`}
+                  className="group grid gap-8 overflow-hidden rounded-2xl border border-gray-100 shadow-sm transition-shadow hover:shadow-lg lg:grid-cols-2"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-100 lg:aspect-auto">
+                    {featured.hero_image_url ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={featured.hero_image_url || "/placeholder.svg"}
+                        alt={featured.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="eager"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-brand-mint/10 text-brand-mintDark">
+                        Mobile Care
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-col justify-center p-6 lg:p-10">
+                    <span className="mb-3 inline-flex w-fit items-center rounded-full bg-brand-mint/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-mintDark">
+                      Featured
+                    </span>
+                    <h2 className="text-2xl font-bold leading-snug text-brand-dark text-balance transition-colors group-hover:text-brand-mintDark sm:text-3xl">
+                      {featured.title}
+                    </h2>
+                    <p className="mt-3 line-clamp-3 leading-relaxed text-gray-600">
+                      {featured.excerpt || featured.meta_description}
+                    </p>
+                    <div className="mt-5 flex items-center gap-3 text-sm text-gray-500">
+                      <time dateTime={featured.created_at}>{formatDate(featured.created_at)}</time>
+                    </div>
+                  </div>
+                </Link>
+              )}
+
+              {/* Grid of remaining posts */}
+              {rest.length > 0 && (
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                  {rest.map((article) => (
+                    <Link
+                      key={article.id}
+                      href={`/blog/${article.slug}`}
+                      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 shadow-sm transition-shadow hover:shadow-lg"
+                    >
+                      <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                        {article.hero_image_url ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={article.hero_image_url || "/placeholder.svg"}
+                            alt={article.title}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-brand-mint/10 text-brand-mintDark">
+                            Mobile Care
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex flex-1 flex-col p-6">
+                        <h3 className="text-lg font-bold leading-snug text-brand-dark text-balance transition-colors group-hover:text-brand-mintDark">
+                          {article.title}
+                        </h3>
+                        <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-gray-600">
+                          {article.excerpt || article.meta_description}
+                        </p>
+                        <time
+                          dateTime={article.created_at}
+                          className="mt-4 text-xs text-gray-500"
+                        >
+                          {formatDate(article.created_at)}
+                        </time>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-                <h3 className="text-lg font-bold text-brand-dark mb-3 group-hover:text-brand-mint transition-colors text-balance">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-5 flex-1 text-pretty">{getExcerpt(post)}</p>
-                <span className="inline-flex items-center gap-2 text-brand-mint font-semibold text-sm">
-                  Read article
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
+              )}
+            </div>
+          )}
+        </section>
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }
