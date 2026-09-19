@@ -98,18 +98,6 @@ export function Hero({ className = "" }: { className?: string }) {
                 </span>
               </div>
             </div>
-
-            <div className="absolute -bottom-5 right-5 hidden items-center gap-3 rounded-2xl bg-white p-4 shadow-xl sm:flex">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-mint/15">
-                <Shield className="h-6 w-6 text-brand-mintDark" />
-              </div>
-              <div>
-                <p className="font-display text-sm font-bold text-brand-dark">
-                  30-Day Warranty
-                </p>
-                <p className="text-xs text-gray-500">On every repair</p>
-              </div>
-            </div>
           </div>
         </div>
 
