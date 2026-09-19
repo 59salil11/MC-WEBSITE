@@ -7,6 +7,7 @@ import { Menu, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { services } from "@/lib/services"
 
 const locations = [
   {
@@ -54,13 +55,32 @@ export function Nav() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-12">
-            <Link
-              href="/services"
-              className="text-brand-dark hover:text-brand-mint transition-colors text-xl font-semibold px-4 py-2"
-            >
-              Services
-            </Link>
+          <div className="hidden md:flex items-center space-x-10">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="text-brand-dark hover:text-brand-mint transition-colors text-xl font-semibold px-4 py-2 flex items-center"
+                >
+                  Services
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64">
+                <DropdownMenuItem asChild>
+                  <Link href="/services" className="w-full cursor-pointer font-semibold">
+                    All Services
+                  </Link>
+                </DropdownMenuItem>
+                {services.map((service) => (
+                  <DropdownMenuItem key={service.slug} asChild>
+                    <Link href={`/services/${service.slug}`} className="w-full cursor-pointer">
+                      {service.shortName}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
               href="/blog"
               className="text-brand-dark hover:text-brand-mint transition-colors text-xl font-semibold px-4 py-2"
@@ -102,9 +122,22 @@ export function Nav() {
             </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
-                <Link href="/services" className="flex w-full items-center py-3 text-xl font-semibold">
-                  Services
-                </Link>
+                <div className="py-3">
+                  <Link href="/services" className="block text-xl font-semibold mb-2">
+                    Services
+                  </Link>
+                  <div className="space-y-2 pl-4">
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="block text-lg text-gray-600 hover:text-brand-mint"
+                      >
+                        {service.shortName}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
                 <Link href="/blog" className="flex w-full items-center py-3 text-xl font-semibold">
                   Blog
                 </Link>

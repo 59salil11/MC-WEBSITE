@@ -5,6 +5,7 @@ import { MapPin, Phone, Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/section-heading"
+import { Reveal } from "@/components/reveal"
 
 const locations = {
   Georgia: [
@@ -100,12 +101,14 @@ export function Locations({ className = "" }: { className?: string }) {
     >
       <div className="absolute inset-0 bg-circuit-pattern opacity-20" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Our Locations"
-          title="Find a store near you"
-          subtitle="Visit any Mobile Care location for expert device repair and premium accessories — walk-ins always welcome."
-          className="mb-16"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Our Locations"
+            title="Find a store near you"
+            subtitle="Visit any Mobile Care location for expert device repair and premium accessories — walk-ins always welcome."
+            className="mb-16"
+          />
+        </Reveal>
 
         <div className="space-y-16">
           {Object.entries(locations).map(([state, stateLocations]) => (
@@ -114,8 +117,10 @@ export function Locations({ className = "" }: { className?: string }) {
                 <>
                   <h3 className="font-display text-2xl font-bold text-brand-dark mb-8">{state}</h3>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-                    {stateLocations.map((location) => (
-                      <LocationCard key={location.name} location={location} />
+                    {stateLocations.map((location, index) => (
+                      <Reveal key={location.name} variant="fade-up" delay={(index % 2) * 120}>
+                        <LocationCard location={location} />
+                      </Reveal>
                     ))}
                   </div>
                 </>
@@ -124,11 +129,15 @@ export function Locations({ className = "" }: { className?: string }) {
                   <>
                     <h3 className="font-display text-2xl font-bold text-brand-dark mb-8">Virginia & North Carolina</h3>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-                      {stateLocations.map((location) => (
-                        <LocationCard key={location.name} location={location} />
+                      {stateLocations.map((location, index) => (
+                        <Reveal key={location.name} variant="fade-up" delay={(index % 2) * 120}>
+                          <LocationCard location={location} />
+                        </Reveal>
                       ))}
-                      {locations["North Carolina"].map((location) => (
-                        <LocationCard key={location.name} location={location} />
+                      {locations["North Carolina"].map((location, index) => (
+                        <Reveal key={location.name} variant="fade-up" delay={((index + 1) % 2) * 120}>
+                          <LocationCard location={location} />
+                        </Reveal>
                       ))}
                     </div>
                   </>
@@ -155,7 +164,7 @@ const LocationCard = ({ location }) => {
     <Card className="border-2 border-brand-mint/20 hover:border-brand-mint transition-colors shadow-lg hover:shadow-xl">
       <CardHeader>
         <div className="relative h-64 w-full mb-4 rounded-t-lg overflow-hidden">
-          <Image src={location.image || "/placeholder.svg"} alt={location.name} layout="fill" objectFit="cover" />
+          <Image src={location.image || "/placeholder.svg"} alt={location.name} fill className="object-cover" />
         </div>
         <div className="flex items-start justify-between">
           <div>

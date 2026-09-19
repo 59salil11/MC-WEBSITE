@@ -3,6 +3,7 @@
 import { Disclosure } from "@headlessui/react"
 import { ChevronDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
+import { Reveal } from "@/components/reveal"
 
 const faqs = [
   {
@@ -36,12 +37,14 @@ export function FAQ({ className = "" }: { className?: string }) {
   return (
     <section className={`bg-gray-50 ${className}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Frequently asked questions"
-          subtitle="Everything you need to know before you visit. Can't find an answer? Give your nearest location a call."
-          className="mb-12"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Frequently asked questions"
+            subtitle="Everything you need to know before you visit. Can't find an answer? Give your nearest location a call."
+            className="mb-12"
+          />
+        </Reveal>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <Disclosure key={index}>

@@ -1,6 +1,7 @@
 import { Smartphone, Tablet, Watch, Laptop, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/components/reveal";
 
 const devices = [
   {
@@ -33,16 +34,18 @@ export function DeviceCategories({ className = "" }: { className?: string }) {
   return (
     <section className={`bg-gray-50 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="What We Repair"
-          title="Expert repairs for every device"
-          subtitle="From cracked screens to failing batteries, our technicians handle it all across every device you rely on."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="What We Repair"
+            title="Expert repairs for every device"
+            subtitle="From cracked screens to failing batteries, our technicians handle it all across every device you rely on."
+          />
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {devices.map((device) => (
+          {devices.map((device, index) => (
+            <Reveal key={device.name} variant="fade-up" delay={(index % 2) * 120}>
             <Card
-              key={device.name}
-              className="group border border-gray-100 shadow-sm transition-all hover:-translate-y-1 hover:border-brand-mint/40 hover:shadow-lg"
+              className="group h-full border border-gray-100 shadow-sm transition-all hover:-translate-y-1 hover:border-brand-mint/40 hover:shadow-lg"
             >
               <CardContent className="flex items-start gap-5 p-6">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-mint/15 text-brand-mintDark transition-colors group-hover:bg-brand-mint group-hover:text-white">
@@ -64,6 +67,7 @@ export function DeviceCategories({ className = "" }: { className?: string }) {
                 </div>
               </CardContent>
             </Card>
+            </Reveal>
           ))}
         </div>
       </div>

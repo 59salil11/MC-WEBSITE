@@ -1,6 +1,7 @@
 import { Lightbulb, Battery, Smartphone, Wifi } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SectionHeading } from "@/components/section-heading"
+import { Reveal } from "@/components/reveal"
 
 const tips = [
   {
@@ -30,23 +31,27 @@ export function TechTips({ className = "" }: { className?: string }) {
   return (
     <section className={`bg-brand-dark ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Tech Tips"
-          title="Pro tips from our experts"
-          subtitle="Maximize your device's performance and longevity with advice straight from our repair technicians."
-          light
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Tech Tips"
+            title="Pro tips from our experts"
+            subtitle="Maximize your device's performance and longevity with advice straight from our repair technicians."
+            light
+          />
+        </Reveal>
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {tips.map((tip, index) => (
-            <Card key={index} className="bg-white/10 border-brand-mint/20 hover:border-brand-mint transition-colors">
-              <CardHeader>
-                <tip.icon className="h-8 w-8 text-brand-mint mb-4" />
-                <CardTitle className="text-xl text-white">{tip.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-300">{tip.description}</p>
-              </CardContent>
-            </Card>
+            <Reveal key={index} variant="fade-up" delay={index * 100}>
+              <Card className="h-full bg-white/10 border-brand-mint/20 hover:border-brand-mint transition-colors">
+                <CardHeader>
+                  <tip.icon className="h-8 w-8 text-brand-mint mb-4" />
+                  <CardTitle className="text-xl text-white">{tip.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{tip.description}</p>
+                </CardContent>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </div>
