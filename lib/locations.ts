@@ -45,7 +45,7 @@ export const locations: StoreLocation[] = [
       { day: "Mon – Sat", time: "10:00 AM – 8:00 PM" },
       { day: "Sunday", time: "12:00 PM – 6:00 PM" },
     ],
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perimeter.jpg-YiRrKjRiy7javUPwJzOjcD82ezca7f.jpeg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Perimeter-JGI7ZEPFHx0LZMPyqShJi1dsz4dByj.jpg",
     directionsUrl:
       "https://www.google.com/maps/dir//Mobile+Care+Perimeter+Mall,+4400+Ashford+Dunwoody+Rd+Space+%232085,+Dunwoody,+GA+30346/",
   },

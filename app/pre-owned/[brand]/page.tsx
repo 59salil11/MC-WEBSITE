@@ -90,11 +90,17 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
       <section className="bg-brand-cream py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="flex items-end justify-between border-b border-gray-200 pb-4">
+            <div className="max-w-2xl">
               <h2 className="font-display text-2xl font-bold text-brand-dark sm:text-3xl">Shop by series</h2>
-              <span className="text-sm font-medium text-gray-500">
-                {brand.series.length} {brand.series.length === 1 ? "series" : "series"}
-              </span>
+              <p className="mt-3 text-base leading-relaxed text-gray-600">
+                Choose your generation below to see the models we carry. Every {brand.name} we sell is fully unlocked,
+                inspected across a multi-point checklist, and backed by our 60-day warranty. Exact availability and
+                colors vary by store — visit any Mobile Care location to see what&apos;s in stock.
+              </p>
+            </div>
+            <div className="mt-6 flex items-center justify-between border-b border-gray-200 pb-4">
+              <span className="text-sm font-medium text-brand-dark">Available generations</span>
+              <span className="text-sm font-medium text-gray-500">{brand.series.length} series</span>
             </div>
           </Reveal>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

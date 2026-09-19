@@ -15,8 +15,9 @@ export function SeriesCard({ series }: { series: PreOwnedSeries }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-3 border-t border-border/60 p-5">
-        <h3 className="text-lg font-semibold text-brand-dark">{series.name}</h3>
-        <ul className="flex flex-wrap gap-2">
+        <h3 className="font-display text-lg font-bold text-brand-dark">{series.name}</h3>
+        <p className="text-sm leading-relaxed text-gray-600">{series.blurb}</p>
+        <ul className="mt-1 flex flex-wrap gap-2">
           {series.models.map((model) => (
             <li
               key={model}

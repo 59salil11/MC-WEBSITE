@@ -12,9 +12,9 @@ const trustPoints = [
 ];
 
 const stats = [
-  { value: "50k+", label: "Devices repaired" },
-  { value: "4.8", label: "Google rating", star: true },
-  { value: "6", label: "Store locations" },
+  { value: "1M+", label: "Devices repaired" },
+  { value: "4.9", label: "Google rating", star: true },
+  { value: "Same day", label: "Most repairs done" },
 ];
 
 export function Hero({ className = "" }: { className?: string }) {
@@ -35,7 +35,7 @@ export function Hero({ className = "" }: { className?: string }) {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-mint/30 bg-brand-mint/10 px-4 py-1.5 text-sm font-medium text-brand-mint">
               <Star className="h-4 w-4 fill-brand-mint text-brand-mint" />
-              Rated 4.8/5 by 2,000+ customers
+              Rated 4.9/5 by 2,000+ customers
             </span>
 
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl text-balance">
@@ -94,7 +94,7 @@ export function Hero({ className = "" }: { className?: string }) {
                   <span className="h-full w-full animate-ping rounded-full bg-brand-mint" />
                 </span>
                 <span className="text-sm font-medium text-white">
-                  6 stores open now across GA, VA &amp; NC
+                  Open now &middot; Walk in, we&apos;ll fix it today
                 </span>
               </div>
             </div>
