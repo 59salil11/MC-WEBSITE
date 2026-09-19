@@ -122,6 +122,43 @@ export const locations: StoreLocation[] = [
     directionsUrl:
       "https://www.google.com/maps/dir//Mobile+Care+Carolina+Place+Mall,+11025+Carolina+Pl+Pkwy+Suite+%23+A04,+Pineville,+NC+28134/",
   },
+  {
+    slug: "twelve-oaks-mall",
+    name: "Twelve Oaks Mall",
+    heading: "Mobile Phone Repair in Twelve Oaks Mall",
+    address: "27500 Novi Rd STE A-109",
+    city: "Novi",
+    state: "MI",
+    zip: "48377",
+    phone: "+1 248 216 2374",
+    hours: [
+      { day: "Mon – Thu", time: "10:00 AM – 8:00 PM" },
+      { day: "Fri – Sat", time: "10:00 AM – 9:00 PM" },
+      { day: "Sunday", time: "11:00 AM – 6:00 PM" },
+    ],
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Twelve%20oaks-2K4V3N67ax0MTW9WE0CNHSrsixM3VH.jpeg",
+    directionsUrl:
+      "https://www.google.com/maps/dir//Mobile+Care+Twelve+Oaks+Mall,+27500+Novi+Rd+STE+A-109,+Novi,+MI+48377/",
+  },
+  {
+    slug: "great-lakes-crossing",
+    name: "Great Lakes Mall",
+    heading: "Mobile Phone Repair in Great Lakes Mall",
+    address: "4000 Baldwin Rd",
+    city: "Auburn Hills",
+    state: "MI",
+    zip: "48326",
+    phone: "+1 248 520 4170",
+    hours: [
+      { day: "Mon – Sat", time: "10:00 AM – 9:00 PM" },
+      { day: "Sunday", time: "11:00 AM – 7:00 PM" },
+    ],
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Great%20lakes-xTbZkQdvDkcYpC3V4irVkwODaOrc2J.jpeg",
+    directionsUrl:
+      "https://www.google.com/maps/dir//Mobile+Care+Great+Lakes+Crossing,+4000+Baldwin+Rd,+Auburn+Hills,+MI+48326/",
+  },
 ]
 
 export function getLocation(slug: string): StoreLocation | undefined {
