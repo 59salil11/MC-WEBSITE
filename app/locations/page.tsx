@@ -9,12 +9,13 @@ import { Reveal } from "@/components/reveal"
 import { locations, type StoreLocation } from "@/lib/locations"
 import { MapPin, Phone, Clock, Search, ArrowRight, ArrowUpRight } from "lucide-react"
 
-const REGION_ORDER = ["Georgia", "Virginia", "North Carolina"] as const
+const REGION_ORDER = ["Georgia", "Virginia", "North Carolina", "Michigan"] as const
 
 const STATE_TO_REGION: Record<string, (typeof REGION_ORDER)[number]> = {
   GA: "Georgia",
   VA: "Virginia",
   NC: "North Carolina",
+  MI: "Michigan",
 }
 
 function groupByRegion(list: StoreLocation[]) {
@@ -187,8 +188,8 @@ export default function LocationsPage() {
             Find a Mobile Care near you
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-white/70">
-            {locations.length} stores across Georgia, Virginia, and North Carolina — expert device repair and premium
-            accessories, no appointment needed.
+            {locations.length} stores across Georgia, Virginia, North Carolina, and Michigan — expert device repair and
+            premium accessories, no appointment needed.
           </p>
         </div>
       </section>
