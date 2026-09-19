@@ -43,6 +43,11 @@ export function Footer() {
                   FAQs
                 </Link>
               </li>
+              <li>
+                <Link href="/blog" className="text-white/40 hover:text-brand-mint transition-colors">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
