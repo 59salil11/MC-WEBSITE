@@ -114,6 +114,29 @@
 }
 
 
+/* Brand logo marquee (right-to-left infinite scroll) */
+@keyframes brand-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.brand-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: brand-marquee 40s linear infinite;
+}
+.brand-marquee:hover .brand-marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee-track {
+    animation: none;
+  }
+}
+
 /* Typography for BabyLoveGrowth article HTML */
 .article-content {
   color: #374151;
