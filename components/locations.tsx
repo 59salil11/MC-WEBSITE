@@ -24,7 +24,7 @@ const locationGroups: { label: string; items: Location[] }[] = [
     items: [
       {
         name: "Augusta Mall",
-        address: "3450 Wrightboro Rd. Suite 1125",
+        address: "3450 Wrightsboro Rd. Suite 1125",
         city: "Augusta",
         state: "GA",
         zip: "30909",
