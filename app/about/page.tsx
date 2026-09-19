@@ -48,26 +48,30 @@ const values = [
   },
 ]
 
-const milestones = [
+const process = [
   {
-    year: "2015",
-    title: "The first kiosk opens",
-    description: "Mobile Care starts as a single mall kiosk with one goal: fast, fair, expert phone repair.",
+    step: "01",
+    title: "Free diagnosis",
+    description:
+      "Walk in and we'll inspect your device on the spot, pinpoint the problem, and explain your options in plain language.",
   },
   {
-    year: "2018",
-    title: "Expanding across Georgia",
-    description: "Growing demand takes us into flagship malls across the Atlanta and Augusta metro areas.",
+    step: "02",
+    title: "Transparent quote",
+    description:
+      "You get an upfront, itemized price before any work begins. No hidden fees, no surprise add-ons at checkout.",
   },
   {
-    year: "2021",
-    title: "Crossing state lines",
-    description: "We open our first stores in Virginia and North Carolina, bringing the same standard of care.",
+    step: "03",
+    title: "Expert repair",
+    description:
+      "A certified technician completes most repairs in 30–45 minutes using quality-tested parts — right in the store.",
   },
   {
-    year: "Today",
-    title: "Six stores and counting",
-    description: "Tens of thousands of repairs later, we remain a locally-run team obsessed with doing it right.",
+    step: "04",
+    title: "Tested & warrantied",
+    description:
+      "We quality-check every fix before handing it back, and back it with our 30-day repair warranty for peace of mind.",
   },
 ]
 
@@ -173,51 +177,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* How it works */}
       <section className="bg-gray-50 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="Our Journey"
-              title="From one kiosk to six stores"
-              subtitle="A decade of doing right by our customers, one repair at a time."
+              eyebrow="How It Works"
+              title="A simple, no-surprises repair process"
+              subtitle="From the moment you walk in to the moment you leave, here's exactly what to expect."
             />
           </Reveal>
-          <div className="relative mt-14">
-            <div
-              className="absolute left-4 top-0 hidden h-full w-px bg-gray-200 sm:left-1/2 sm:block"
-              aria-hidden="true"
-            />
-            <div className="space-y-8 sm:space-y-0">
-              {milestones.map((milestone, index) => (
-                <Reveal key={milestone.year} variant="fade-up" delay={index * 100}>
-                  <div
-                    className={`relative sm:flex sm:items-center sm:gap-8 ${
-                      index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-                    } ${index > 0 ? "sm:-mt-8" : ""}`}
-                  >
-                    <div className="sm:w-1/2">
-                      <div
-                        className={`rounded-2xl border border-gray-100 bg-white p-6 shadow-sm ${
-                          index % 2 === 0 ? "sm:text-right" : "sm:text-left"
-                        }`}
-                      >
-                        <span className="inline-flex items-center rounded-full bg-brand-mint/15 px-3 py-1 text-sm font-bold text-brand-mintDark">
-                          {milestone.year}
-                        </span>
-                        <h3 className="mt-3 font-display text-xl font-bold text-brand-dark">{milestone.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-gray-600">{milestone.description}</p>
-                      </div>
-                    </div>
-                    <div
-                      className="absolute left-4 top-6 h-3 w-3 -translate-x-1/2 rounded-full bg-brand-mint ring-4 ring-gray-50 sm:left-1/2 sm:top-1/2 sm:-translate-y-1/2"
-                      aria-hidden="true"
-                    />
-                    <div className="hidden sm:block sm:w-1/2" />
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {process.map((item, index) => (
+              <Reveal key={item.step} variant="fade-up" delay={index * 100}>
+                <div className="group relative h-full rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-brand-mint/40 hover:shadow-lg">
+                  <span className="font-display text-4xl font-bold text-brand-mint/30 transition-colors group-hover:text-brand-mint/60">
+                    {item.step}
+                  </span>
+                  <h3 className="mt-3 font-display text-lg font-bold text-brand-dark">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.description}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
