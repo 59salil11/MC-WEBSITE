@@ -7,8 +7,8 @@ import { Nav } from "@/components/nav"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Reveal } from "@/components/reveal"
-import { DeviceCard } from "@/components/device-card"
-import { preOwnedBrands, getPreOwnedBrand, groupModelsBySeries } from "@/lib/pre-owned"
+import { SeriesCard } from "@/components/series-card"
+import { preOwnedBrands, getPreOwnedBrand } from "@/lib/pre-owned"
 
 export function generateStaticParams() {
   return preOwnedBrands.map((brand) => ({ brand: brand.slug }))
@@ -41,8 +41,6 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
   const brand = getPreOwnedBrand(slug)
   if (!brand) notFound()
 
-  const series = groupModelsBySeries(brand.models)
-
   return (
     <main className="min-h-screen">
       <Nav />
@@ -60,25 +58,21 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
             All brands
           </Link>
 
-          <div className="mt-8 grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <div
-                className={`flex h-14 w-fit items-center rounded-xl px-5 ${
-                  brand.logoDark ? "bg-white/10 ring-1 ring-white/15" : "bg-white"
-                }`}
-              >
-                <Image
-                  src={brand.logo || "/placeholder.svg"}
-                  alt={`${brand.name} logo`}
-                  width={140}
-                  height={48}
-                  className="h-7 w-auto object-contain"
-                />
-              </div>
-              <h1 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl text-balance">
+          <div className="mt-8 flex flex-col items-start gap-8">
+            <div className="flex h-28 w-56 items-center justify-center rounded-2xl bg-white p-6">
+              <Image
+                src={brand.logo || "/placeholder.svg"}
+                alt={`${brand.name} logo`}
+                width={220}
+                height={112}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="max-w-2xl">
+              <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl text-balance">
                 Certified Pre-Owned {brand.name}
               </h1>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-gray-300 text-pretty">{brand.description}</p>
+              <p className="mt-4 text-lg leading-relaxed text-gray-300 text-pretty">{brand.description}</p>
               <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
                 {promiseChips.map((chip) => (
                   <li key={chip.label} className="flex items-center gap-2 text-sm font-medium text-gray-200">
@@ -88,44 +82,26 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
                 ))}
               </ul>
             </div>
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative flex h-72 w-72 items-center justify-center rounded-full bg-brand-mint/10 sm:h-80 sm:w-80">
-                <Image
-                  src={brand.image || "/placeholder.svg"}
-                  alt={`${brand.name} certified pre-owned phone`}
-                  width={320}
-                  height={320}
-                  className="h-64 w-64 object-contain drop-shadow-2xl sm:h-72 sm:w-72"
-                  priority
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Device grid by series */}
+      {/* Series grid */}
       <section className="bg-brand-cream py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-16">
-            {series.map((group) => (
-              <div key={group.series}>
-                <Reveal>
-                  <div className="flex items-end justify-between border-b border-gray-200 pb-4">
-                    <h2 className="font-display text-2xl font-bold text-brand-dark sm:text-3xl">{group.series}</h2>
-                    <span className="text-sm font-medium text-gray-500">
-                      {group.models.length} {group.models.length === 1 ? "model" : "models"}
-                    </span>
-                  </div>
-                </Reveal>
-                <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {group.models.map((model, index) => (
-                    <Reveal key={model.slug} variant="fade-up" delay={(index % 4) * 80}>
-                      <DeviceCard model={model} image={brand.image} brandName={brand.name} />
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
+          <Reveal>
+            <div className="flex items-end justify-between border-b border-gray-200 pb-4">
+              <h2 className="font-display text-2xl font-bold text-brand-dark sm:text-3xl">Shop by series</h2>
+              <span className="text-sm font-medium text-gray-500">
+                {brand.series.length} {brand.series.length === 1 ? "series" : "series"}
+              </span>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {brand.series.map((series, index) => (
+              <Reveal key={series.slug} variant="fade-up" delay={(index % 3) * 80}>
+                <SeriesCard series={series} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -140,8 +116,8 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
               Ready to grab your {brand.name}?
             </h2>
             <p className="mt-4 text-lg text-gray-300">
-              Availability and pricing vary by store. Visit a Mobile Care location to check current stock and take your
-              certified device home today.
+              Availability varies by store. Visit a Mobile Care location to check current stock and take your certified
+              device home today.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link href="/locations">

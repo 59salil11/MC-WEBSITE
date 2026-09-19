@@ -12,7 +12,7 @@ import { preOwnedBrands } from "@/lib/pre-owned"
 export const metadata: Metadata = {
   title: "Certified Pre-Owned Phones | Mobile Care USA",
   description:
-    "Shop certified pre-owned iPhone, Samsung Galaxy, Google Pixel, and Motorola phones — fully unlocked, never repaired, and backed by a 60-day warranty. Browse by brand.",
+    "Shop certified pre-owned Apple iPhone and Samsung Galaxy phones — fully unlocked, never repaired, and backed by a 60-day warranty. Browse by brand and series.",
   alternates: { canonical: "https://mobilecareusa.com/pre-owned" },
 }
 
@@ -58,8 +58,8 @@ export default function PreOwnedPage() {
               Certified pre-owned phones you can trust
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-gray-300 sm:text-xl text-pretty">
-              Premium pre-owned iPhone, Galaxy, Pixel, and Motorola devices — fully unlocked, never repaired, and backed
-              by our 60-day warranty. Browse by brand to find your next phone.
+              Premium pre-owned Apple iPhone and Samsung Galaxy devices — fully unlocked, never repaired, and backed by
+              our 60-day warranty. Browse by brand and series to find your next phone.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="#brands">
@@ -114,38 +114,23 @@ export default function PreOwnedPage() {
               <Reveal key={brand.slug} variant="fade-up" delay={(index % 2) * 120}>
                 <Link
                   href={`/pre-owned/${brand.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-gray-100 transition-all hover:-translate-y-1 hover:shadow-lg sm:flex-row"
+                  className="group flex h-full flex-col items-center overflow-hidden rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-gray-100 transition-all hover:-translate-y-1 hover:shadow-lg sm:p-10"
                 >
-                  <div className="relative flex aspect-[4/3] w-full shrink-0 items-center justify-center bg-gray-50 p-8 sm:aspect-auto sm:w-48">
+                  <div className="flex h-40 w-full items-center justify-center">
                     <Image
-                      src={brand.image || "/placeholder.svg"}
-                      alt={`${brand.name} certified pre-owned phones`}
-                      width={220}
-                      height={220}
-                      className="h-40 w-full object-contain transition-transform duration-300 group-hover:scale-105 sm:h-full"
+                      src={brand.logo || "/placeholder.svg"}
+                      alt={`${brand.name} logo`}
+                      width={320}
+                      height={160}
+                      className="h-32 w-auto max-w-[70%] object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <div
-                      className={`flex h-12 w-fit items-center rounded-xl px-4 ${
-                        brand.logoDark ? "bg-brand-dark" : "bg-gray-50"
-                      }`}
-                    >
-                      <Image
-                        src={brand.logo || "/placeholder.svg"}
-                        alt={`${brand.name} logo`}
-                        width={120}
-                        height={40}
-                        className="h-6 w-auto object-contain"
-                      />
-                    </div>
-                    <h3 className="mt-4 font-display text-2xl font-bold text-brand-dark">{brand.name}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">{brand.tagline}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-mintDark">
-                      Shop {brand.name} · {brand.models.length} models
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </div>
+                  <h3 className="mt-6 font-display text-2xl font-bold text-brand-dark">{brand.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{brand.tagline}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-mintDark">
+                    Shop {brand.name} · {brand.series.length} series
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </Link>
               </Reveal>
             ))}

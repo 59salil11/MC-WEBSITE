@@ -17,19 +17,17 @@ export function BrandMarquee() {
 
       <ul className="brand-marquee-track">
         {loop.map((brand, i) => (
-          <li key={`${brand.name}-${i}`} className="px-3 sm:px-4" aria-hidden={i >= accessoryBrands.length}>
-            <div
-              className={cn(
-                "flex h-24 w-40 items-center justify-center rounded-xl border p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:w-48",
-                brand.dark ? "border-neutral-800 bg-neutral-900" : "border-border bg-white",
-              )}
-            >
+          <li key={`${brand.name}-${i}`} className="px-6 sm:px-8" aria-hidden={i >= accessoryBrands.length}>
+            <div className="flex h-28 w-52 items-center justify-center transition-transform duration-300 hover:-translate-y-1 sm:w-56">
               <Image
                 src={brand.logo || "/placeholder.svg"}
                 alt={`${brand.name} logo`}
-                width={160}
-                height={64}
-                className="h-full w-full object-contain"
+                width={224}
+                height={96}
+                className={cn(
+                  "h-20 w-full object-contain",
+                  brand.dark ? "" : "mix-blend-multiply",
+                )}
               />
             </div>
           </li>
