@@ -24,7 +24,7 @@ export const locations: StoreLocation[] = [
     zip: "30339",
     phone: "+1 404 271 6281",
     hours: [
-      { day: "Mon – Sat", time: "11:00 AM – 8:00 PM" },
+      { day: "Mon – Sat", time: "10:00 AM – 8:00 PM" },
       { day: "Sunday", time: "12:00 PM – 6:00 PM" },
     ],
     image:
@@ -42,7 +42,7 @@ export const locations: StoreLocation[] = [
     zip: "30346",
     phone: "+1 470 983 1595",
     hours: [
-      { day: "Mon – Sat", time: "11:00 AM – 8:00 PM" },
+      { day: "Mon – Sat", time: "10:00 AM – 8:00 PM" },
       { day: "Sunday", time: "12:00 PM – 6:00 PM" },
     ],
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/perimeter.jpg-YiRrKjRiy7javUPwJzOjcD82ezca7f.jpeg",

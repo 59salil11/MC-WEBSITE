@@ -66,9 +66,19 @@ function LocationRow({ location }: { location: StoreLocation }) {
             {location.address}, {location.city}, {location.state} {location.zip}
           </span>
         </div>
-        <div className="mt-1.5 flex items-center gap-2 text-sm text-gray-600">
-          <Clock className="h-4 w-4 flex-shrink-0 text-brand-mint" />
-          <span>{location.hours[0]?.time ? `${location.hours[0].day}: ${location.hours[0].time}` : "See hours"}</span>
+        <div className="mt-1.5 flex items-start gap-2 text-sm text-gray-600">
+          <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-mint" />
+          <div className="flex flex-col gap-0.5">
+            {location.hours.length > 0 ? (
+              location.hours.map((h) => (
+                <span key={h.day}>
+                  <span className="font-medium text-brand-dark">{h.day}:</span> {h.time}
+                </span>
+              ))
+            ) : (
+              <span>See hours</span>
+            )}
+          </div>
         </div>
       </div>
 
