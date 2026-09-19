@@ -78,7 +78,7 @@ export function Hero({ className = "" }: { className?: string }) {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10 sm:aspect-[5/4] lg:aspect-[4/5]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-1rthSq43p4kpNrDLcfH1wcDlEz8SpR.jpg"
                 alt="Mobile Care technician repairing a smartphone in-store"
