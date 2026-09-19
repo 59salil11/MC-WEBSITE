@@ -14,7 +14,7 @@ const trustPoints = [
 const stats = [
   { value: "1M+", label: "Devices repaired" },
   { value: "4.9", label: "Google rating", star: true },
-  { value: "6", label: "Store locations" },
+  { value: "Same day", label: "Most repairs done" },
 ];
 
 export function Hero({ className = "" }: { className?: string }) {
