@@ -6,17 +6,31 @@ import Link from "next/link"
 import { Menu, ChevronDown, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { services } from "@/lib/services"
+import { locations as storeLocations } from "@/lib/locations"
 
-const locations = [
-  { name: "Augusta Mall", path: "/locations/augusta-mall" },
-  { name: "Perimeter Mall", path: "/locations/perimeter-mall" },
-  { name: "Cumberland Mall", path: "/locations/cumberland-mall" },
-  { name: "Southlake Mall", path: "/locations/southlake-mall" },
-  { name: "Lynnhaven Mall", path: "/locations/lynnhaven-mall" },
-  { name: "Carolina Place Mall", path: "/locations/carolina-place-mall" },
-]
+const STATE_NAMES: Record<string, string> = {
+  GA: "Georgia",
+  VA: "Virginia",
+  NC: "North Carolina",
+  MI: "Michigan",
+}
+
+const REGION_ORDER = ["GA", "VA", "NC", "MI"]
+
+const locationsByRegion = REGION_ORDER.map((state) => ({
+  state,
+  name: STATE_NAMES[state] ?? state,
+  stores: storeLocations.filter((l) => l.state === state),
+})).filter((region) => region.stores.length > 0)
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -103,13 +117,26 @@ export function Nav() {
                   <ChevronDown className="h-4 w-4 opacity-70" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56 rounded-xl p-2">
-                {locations.map((location) => (
-                  <DropdownMenuItem key={location.path} asChild>
-                    <Link href={location.path} className="w-full cursor-pointer rounded-lg">
-                      {location.name}
-                    </Link>
-                  </DropdownMenuItem>
+              <DropdownMenuContent align="start" className="w-64 rounded-xl p-2">
+                <DropdownMenuItem asChild>
+                  <Link href="/locations" className="w-full cursor-pointer rounded-lg font-semibold">
+                    All Locations
+                  </Link>
+                </DropdownMenuItem>
+                {locationsByRegion.map((region) => (
+                  <div key={region.state}>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuLabel className="px-2 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      {region.name}
+                    </DropdownMenuLabel>
+                    {region.stores.map((store) => (
+                      <DropdownMenuItem key={store.slug} asChild>
+                        <Link href={`/locations/${store.slug}`} className="w-full cursor-pointer rounded-lg">
+                          {store.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </div>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -160,22 +187,26 @@ export function Nav() {
                   </div>
                 </div>
                 <div className="py-2">
-                  <p className="mb-2 text-xl font-semibold">Locations</p>
-                  <div className="space-y-2 pl-4">
-                    {locations.map((location) => (
-                      <Link
-                        key={location.path}
-                        href={location.path}
-                        className="block text-lg text-gray-600 hover:text-brand-mintDark"
-                      >
-                        {location.name}
-                      </Link>
+                  <Link href="/locations" className="mb-2 block text-xl font-semibold">
+                    Locations
+                  </Link>
+                  <div className="space-y-4 pl-4">
+                    {locationsByRegion.map((region) => (
+                      <div key={region.state} className="space-y-2">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{region.name}</p>
+                        {region.stores.map((store) => (
+                          <Link
+                            key={store.slug}
+                            href={`/locations/${store.slug}`}
+                            className="block text-lg text-gray-600 hover:text-brand-mintDark"
+                          >
+                            {store.name}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
                 </div>
-                <Link href="/about" className="py-2 text-xl font-semibold">
-                  About Us
-                </Link>
                 <Link href="/locations" className="w-full pt-2">
                   <Button className="w-full rounded-full bg-brand-mint font-semibold text-brand-dark hover:bg-brand-mintLight">
                     Find a Location
