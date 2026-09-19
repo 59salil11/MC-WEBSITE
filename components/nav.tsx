@@ -81,6 +81,13 @@ export function Nav() {
               About Us
             </Link>
 
+            <Link
+              href="/accessories"
+              className={`rounded-full px-4 text-[0.95rem] font-medium transition-colors ${linkColor}`}
+            >
+              Accessories
+            </Link>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -169,6 +176,9 @@ export function Nav() {
               <div className="mt-8 flex flex-col space-y-4">
                 <Link href="/about" className="py-2 text-xl font-semibold">
                   About Us
+                </Link>
+                <Link href="/accessories" className="py-2 text-xl font-semibold">
+                  Accessories
                 </Link>
                 <div className="py-2">
                   <Link href="/services" className="mb-2 block text-xl font-semibold">
