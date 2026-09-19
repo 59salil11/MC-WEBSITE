@@ -104,6 +104,13 @@ export const preOwnedBrands: PreOwnedBrand[] = [
       "Certified pre-owned Samsung Galaxy S phones from the S21 series and up. Every device is fully unlocked, never repaired, and backed by our 60-day warranty.",
     series: [
       {
+        name: "Galaxy Z Series",
+        slug: "galaxy-z",
+        image: `${SERIES_BASE}/galaxy-z.png`,
+        blurb: "Samsung's foldable lineup — the book-style Z Fold and the compact Z Flip.",
+        models: ["Galaxy Z Fold", "Galaxy Z Flip"],
+      },
+      {
         name: "Galaxy S26 Series",
         slug: "galaxy-s26",
         image: `${SERIES_BASE}/galaxy-s26.avif`,
