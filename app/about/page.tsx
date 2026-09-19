@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "6", label: "Store locations" },
-  { value: "50k+", label: "Devices repaired" },
-  { value: "4.8", label: "Average rating" },
+  { value: "1M+", label: "Devices repaired" },
+  { value: "4.9", label: "Average rating" },
   { value: "30-Day", label: "Repair warranty" },
 ]
 

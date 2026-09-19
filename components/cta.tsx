@@ -57,7 +57,7 @@ export function CTA() {
                   <div className="relative h-full w-full rounded-3xl bg-white/10 border border-white/20 backdrop-blur-sm p-8">
                     <div className="h-full w-full rounded-2xl bg-brand-dark/40 shadow-2xl flex items-center justify-center">
                       <div className="text-center">
-                        <p className="text-4xl font-bold text-white mb-2">100,000+</p>
+                        <p className="text-4xl font-bold text-white mb-2">1,000,000+</p>
                         <p className="text-xl text-brand-mint">Devices Repaired</p>
                       </div>
                     </div>
