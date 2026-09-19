@@ -1,6 +1,7 @@
 import { Nav } from "@/components/nav"
 import { Hero } from "@/components/hero"
 import { WhyChooseUs } from "@/components/why-choose-us"
+import { StoreShowcase } from "@/components/store-showcase"
 import { DeviceCategories } from "@/components/device-categories"
 import { PreOwnedHighlight } from "@/components/pre-owned-highlight"
 import { TechTips } from "@/components/tech-tips"
@@ -15,6 +16,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <WhyChooseUs className="py-16 sm:py-24" />
+      <StoreShowcase className="bg-brand-cream py-16 sm:py-24" />
       <DeviceCategories className="py-16 sm:py-24" />
       <PreOwnedHighlight className="bg-brand-cream py-16 sm:py-24" />
       <AccessoriesBrands className="py-16 sm:py-24" />
