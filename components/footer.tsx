@@ -75,7 +75,9 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-white/10 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Mobile Care. All rights reserved.</p>
+          <p>
+            &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> Mobile Care. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
