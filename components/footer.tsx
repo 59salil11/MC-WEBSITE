@@ -24,13 +24,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-brand-mint transition-colors">
+                <Link href="/about" className="hover:text-brand-mint transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-brand-mint transition-colors">
-                  Contact
+                <Link href="/faqs" className="hover:text-brand-mint transition-colors">
+                  FAQs
                 </Link>
               </li>
             </ul>
