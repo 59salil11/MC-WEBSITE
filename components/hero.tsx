@@ -94,7 +94,7 @@ export function Hero({ className = "" }: { className?: string }) {
                   <span className="h-full w-full animate-ping rounded-full bg-brand-mint" />
                 </span>
                 <span className="text-sm font-medium text-white">
-                  6 stores open now across GA, VA &amp; NC
+                  Open now &middot; Walk in, we&apos;ll fix it today
                 </span>
               </div>
             </div>
