@@ -78,10 +78,10 @@ export function Hero({ className = "" }: { className?: string }) {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10 sm:aspect-[5/4] lg:aspect-[4/5]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-1rthSq43p4kpNrDLcfH1wcDlEz8SpR.jpg"
-                alt="Mobile Care technician repairing a smartphone in-store"
+                src="/hero-repair.png"
+                alt="Certified technician repairing a smartphone with precision tools"
                 fill
                 className="object-cover"
                 priority
@@ -96,18 +96,6 @@ export function Hero({ className = "" }: { className?: string }) {
                 <span className="text-sm font-medium text-white">
                   6 stores open now across GA, VA &amp; NC
                 </span>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-5 -left-4 hidden items-center gap-3 rounded-2xl bg-white p-4 shadow-xl sm:flex">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-mint/15">
-                <Shield className="h-6 w-6 text-brand-mintDark" />
-              </div>
-              <div>
-                <p className="font-display text-sm font-bold text-brand-dark">
-                  30-Day Warranty
-                </p>
-                <p className="text-xs text-gray-500">On every repair</p>
               </div>
             </div>
           </div>
