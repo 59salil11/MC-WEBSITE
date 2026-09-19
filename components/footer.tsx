@@ -19,6 +19,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/pre-owned" className="hover:text-brand-mint transition-colors">
+                  Pre-Owned Phones
+                </Link>
+              </li>
+              <li>
+                <Link href="/accessories" className="hover:text-brand-mint transition-colors">
+                  Accessories
+                </Link>
+              </li>
+              <li>
                 <Link href="/locations" className="hover:text-brand-mint transition-colors">
                   Locations
                 </Link>

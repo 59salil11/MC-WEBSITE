@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { services } from "@/lib/services"
 import { locations as storeLocations } from "@/lib/locations"
+import { preOwnedBrands } from "@/lib/pre-owned"
 
 const STATE_NAMES: Record<string, string> = {
   GA: "Georgia",
@@ -87,6 +88,32 @@ export function Nav() {
             >
               Accessories
             </Link>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className={`flex items-center gap-1.5 rounded-full px-4 text-[0.95rem] font-medium transition-colors hover:bg-transparent ${linkColor}`}
+                >
+                  Pre-Owned
+                  <ChevronDown className="h-4 w-4 opacity-70" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64 rounded-xl p-2">
+                <DropdownMenuItem asChild>
+                  <Link href="/pre-owned" className="w-full cursor-pointer rounded-lg font-semibold">
+                    All Pre-Owned Phones
+                  </Link>
+                </DropdownMenuItem>
+                {preOwnedBrands.map((brand) => (
+                  <DropdownMenuItem key={brand.slug} asChild>
+                    <Link href={`/pre-owned/${brand.slug}`} className="w-full cursor-pointer rounded-lg">
+                      {brand.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -180,6 +207,22 @@ export function Nav() {
                 <Link href="/accessories" className="py-2 text-xl font-semibold">
                   Accessories
                 </Link>
+                <div className="py-2">
+                  <Link href="/pre-owned" className="mb-2 block text-xl font-semibold">
+                    Pre-Owned
+                  </Link>
+                  <div className="space-y-2 pl-4">
+                    {preOwnedBrands.map((brand) => (
+                      <Link
+                        key={brand.slug}
+                        href={`/pre-owned/${brand.slug}`}
+                        className="block text-lg text-gray-600 hover:text-brand-mintDark"
+                      >
+                        {brand.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
                 <div className="py-2">
                   <Link href="/services" className="mb-2 block text-xl font-semibold">
                     Services

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { getArticles } from "@/lib/babylovegrowth"
+import { preOwnedBrands } from "@/lib/pre-owned"
 
 const SITE_URL = "https://mobilecareusa.com"
 
@@ -22,9 +23,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${SITE_URL}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/pre-owned`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/locations`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ]
+
+  const preOwnedRoutes: MetadataRoute.Sitemap = preOwnedBrands.map((brand) => ({
+    url: `${SITE_URL}/pre-owned/${brand.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }))
 
   const locationRoutes: MetadataRoute.Sitemap = LOCATION_SLUGS.map((slug) => ({
     url: `${SITE_URL}/locations/${slug}`,
@@ -41,5 +50,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...locationRoutes, ...blogRoutes]
+  return [...staticRoutes, ...preOwnedRoutes, ...locationRoutes, ...blogRoutes]
 }
