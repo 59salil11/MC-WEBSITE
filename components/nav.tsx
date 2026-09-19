@@ -107,6 +107,13 @@ export function Nav() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <Link
+              href="/about"
+              className={`rounded-full px-4 text-[0.95rem] font-medium transition-colors ${linkColor}`}
+            >
+              About Us
+            </Link>
+
             <Link href="/locations" className="ml-3">
               <Button
                 className={`rounded-full px-5 font-semibold shadow-sm transition-colors ${
@@ -163,6 +170,9 @@ export function Nav() {
                     ))}
                   </div>
                 </div>
+                <Link href="/about" className="py-2 text-xl font-semibold">
+                  About Us
+                </Link>
                 <Link href="/locations" className="w-full pt-2">
                   <Button className="w-full rounded-full bg-brand-mint font-semibold text-brand-dark hover:bg-brand-mintLight">
                     Find a Location
