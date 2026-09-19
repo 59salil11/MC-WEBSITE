@@ -60,6 +60,13 @@ export function Nav() {
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
+            <Link
+              href="/about"
+              className={`rounded-full px-4 text-[0.95rem] font-medium transition-colors ${linkColor}`}
+            >
+              About Us
+            </Link>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -107,13 +114,6 @@ export function Nav() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link
-              href="/about"
-              className={`rounded-full px-4 text-[0.95rem] font-medium transition-colors ${linkColor}`}
-            >
-              About Us
-            </Link>
-
             <Link href="/locations" className="ml-3">
               <Button
                 className={`rounded-full px-5 font-semibold shadow-sm transition-colors ${
@@ -140,6 +140,9 @@ export function Nav() {
             </SheetTrigger>
             <SheetContent>
               <div className="mt-8 flex flex-col space-y-4">
+                <Link href="/about" className="py-2 text-xl font-semibold">
+                  About Us
+                </Link>
                 <div className="py-2">
                   <Link href="/services" className="mb-2 block text-xl font-semibold">
                     Services
