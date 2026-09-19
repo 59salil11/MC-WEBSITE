@@ -137,7 +137,7 @@ export const locations: StoreLocation[] = [
       { day: "Sunday", time: "11:00 AM – 6:00 PM" },
     ],
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Twelve%20oaks-2K4V3N67ax0MTW9WE0CNHSrsixM3VH.jpeg",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Twelve%20Oaks-YHgbCmCrgSTfTx83HNrhItKnR9TeKG.jpeg",
     directionsUrl:
       "https://www.google.com/maps/dir//Mobile+Care+Twelve+Oaks+Mall,+27500+Novi+Rd+STE+A-109,+Novi,+MI+48377/",
   },
