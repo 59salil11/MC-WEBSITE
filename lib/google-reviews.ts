@@ -129,13 +129,14 @@ async function loadReviews(apiKey: string): Promise<ReviewsData> {
   return { reviews, stores, averageRating, totalReviews }
 }
 
-const getCachedReviews = unstable_cache(loadReviews, ["google-reviews-v2"], {
+const getCachedReviews = unstable_cache(loadReviews, ["google-reviews-v3"], {
   revalidate: 60 * 60 * 12,
   tags: ["google-reviews"],
 })
 
 export async function getGoogleReviews(): Promise<ReviewsData | null> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY
+  const apiKey =
+    process.env.GCP_API_KEY_2 || process.env.GOOGLE_PLACES_API_KEY || process.env.GCP_API_KEY
   if (!apiKey) return null
   try {
     return await getCachedReviews(apiKey)
