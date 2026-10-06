@@ -1,34 +1,10 @@
 import type { Metadata } from "next"
 import { LocationJsonLd } from "@/components/json-ld"
-import { getLocation } from "@/lib/locations"
+import { locationMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title:
-    "Phone Repair Shop in Twelve Oaks Mall, Tablet repair & Laptop Repair Service in Twelve Oaks Mall | Mobile Care USA",
-  description:
-    "Get fast, reliable phone repair in Twelve Oaks Mall with Mobile Care USA. We also provide expert tablet and laptop repair services, including cracked screen replacement, battery upgrades, software fixes, and full diagnostics for iPhone, Samsung, MacBook, iPad, and more. Affordable pricing, trusted technicians, and same-day service to keep your devices running smoothly.",
-  keywords: [
-    "Mobile Phone Repair in Twelve Oaks Mall",
-    "iPhone repair in Twelve Oaks Mall",
-    "iPad repair in Twelve Oaks Mall",
-    "Tablet repair service in Twelve Oaks Mall",
-    "laptop repair service in Twelve Oaks Mall",
-    "smartwatch repair in Twelve Oaks Mall",
-    "screen repair service in Twelve Oaks Mall",
-  ],
-  alternates: { canonical: "/locations/twelve-oaks-mall" },
-  openGraph: {
-    title:
-      "Phone Repair Shop in Twelve Oaks Mall, Tablet repair & Laptop Repair Service in Twelve Oaks Mall | Mobile Care USA",
-    description:
-      "Get fast, reliable phone repair in Twelve Oaks Mall with Mobile Care USA. We also provide expert tablet and laptop repair services, including cracked screen replacement, battery upgrades, software fixes, and full diagnostics for iPhone, Samsung, MacBook, iPad, and more. Affordable pricing, trusted technicians, and same-day service to keep your devices running smoothly.",
-    url: "https://mobilecareusa.com/locations/twelve-oaks-mall",
-    images: [{ url: getLocation("twelve-oaks-mall")?.image ?? "/store-interior.png", alt: "Mobile Care USA store" }],
-    type: "website",
-  },
-}
+export const metadata: Metadata = locationMetadata("twelve-oaks-mall")
 
-export default function TwelveOaksMallLayout({ children }: { children: React.ReactNode }) {
+export default function LocationLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <LocationJsonLd slug="twelve-oaks-mall" />

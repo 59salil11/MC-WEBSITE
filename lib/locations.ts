@@ -6,6 +6,8 @@ export interface StoreLocation {
   city: string
   state: string
   zip: string
+  geo: { lat: number; lng: number }
+  nearby: string[]
   phone: string
   hours: { day: string; time: string }[]
   image: string
@@ -22,6 +24,8 @@ export const locations: StoreLocation[] = [
     city: "Atlanta",
     state: "GA",
     zip: "30339",
+    geo: { lat: 33.8812, lng: -84.4686 },
+    nearby: ["Smyrna", "Vinings", "Marietta", "Sandy Springs", "Mableton"],
     phone: "+1 404 271 6281",
     hours: [
       { day: "Mon – Sat", time: "10:00 AM – 8:00 PM" },
@@ -40,6 +44,8 @@ export const locations: StoreLocation[] = [
     city: "Dunwoody",
     state: "GA",
     zip: "30346",
+    geo: { lat: 33.9248, lng: -84.3412 },
+    nearby: ["Sandy Springs", "Brookhaven", "Chamblee", "Doraville", "Roswell"],
     phone: "+1 470 983 1595",
     hours: [
       { day: "Mon – Sat", time: "10:00 AM – 8:00 PM" },
@@ -57,6 +63,8 @@ export const locations: StoreLocation[] = [
     city: "Morrow",
     state: "GA",
     zip: "30260",
+    geo: { lat: 33.5764, lng: -84.3376 },
+    nearby: ["Jonesboro", "Riverdale", "Stockbridge", "Forest Park", "Lake City"],
     phone: "+1 470 546 9171",
     hours: [
       { day: "Mon – Sat", time: "10:00 AM – 8:00 PM" },
@@ -74,6 +82,8 @@ export const locations: StoreLocation[] = [
     city: "Augusta",
     state: "GA",
     zip: "30909",
+    geo: { lat: 33.4733, lng: -82.0838 },
+    nearby: ["Martinez", "Evans", "Grovetown", "North Augusta", "Hephzibah"],
     phone: "+1 762 444 9461",
     hours: [
       { day: "Mon – Thu", time: "11:00 AM – 7:00 PM" },
@@ -92,6 +102,8 @@ export const locations: StoreLocation[] = [
     city: "Virginia Beach",
     state: "VA",
     zip: "23452",
+    geo: { lat: 36.8213, lng: -76.0688 },
+    nearby: ["Norfolk", "Chesapeake", "Hilltop", "Kempsville", "Oceanfront"],
     phone: "+1 757 692 1915",
     hours: [
       { day: "Mon – Thu", time: "11:00 AM – 7:00 PM" },
@@ -111,6 +123,8 @@ export const locations: StoreLocation[] = [
     city: "Pineville",
     state: "NC",
     zip: "28134",
+    geo: { lat: 35.0599, lng: -80.8508 },
+    nearby: ["Charlotte", "Ballantyne", "Matthews", "Fort Mill", "Indian Land"],
     phone: "+1 704 670 8479",
     hours: [
       { day: "Mon – Thu", time: "11:00 AM – 7:00 PM" },
@@ -130,6 +144,8 @@ export const locations: StoreLocation[] = [
     city: "Novi",
     state: "MI",
     zip: "48377",
+    geo: { lat: 42.4917, lng: -83.47 },
+    nearby: ["Northville", "Wixom", "Farmington Hills", "Commerce Township", "Walled Lake"],
     phone: "+1 248 216 2374",
     hours: [
       { day: "Mon – Thu", time: "10:00 AM – 8:00 PM" },
@@ -149,6 +165,8 @@ export const locations: StoreLocation[] = [
     city: "Auburn Hills",
     state: "MI",
     zip: "48326",
+    geo: { lat: 42.7068, lng: -83.2984 },
+    nearby: ["Rochester Hills", "Lake Orion", "Pontiac", "Clarkston", "Troy"],
     phone: "+1 248 520 4170",
     hours: [
       { day: "Mon – Sat", time: "10:00 AM – 9:00 PM" },

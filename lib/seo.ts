@@ -1,4 +1,5 @@
-import { locations, type StoreLocation } from "@/lib/locations"
+import type { Metadata } from "next"
+import { getLocation, locations, type StoreLocation } from "@/lib/locations"
 
 export const SITE_URL = "https://mobilecareusa.com"
 export const SITE_NAME = "Mobile Care USA"
@@ -53,6 +54,96 @@ function openingHours(hours: StoreLocation["hours"]) {
   })
 }
 
+function cityState(location: StoreLocation) {
+  return `${location.city}, ${location.state}`
+}
+
+function locationDescription(location: StoreLocation) {
+  return `Same-day iPhone, Samsung, iPad & laptop repair at ${location.name} in ${cityState(location)}. Screen & battery replacement, 30-day warranty, walk-ins welcome.`
+}
+
+export function locationFaqs(location: StoreLocation) {
+  const hours = location.hours.map((h) => `${h.day}: ${h.time}`).join(", ")
+  return [
+    {
+      question: `Where is Mobile Care at ${location.name} located?`,
+      answer: `Mobile Care USA is inside ${location.name} at ${location.address}, ${cityState(location)} ${location.zip}. You can call the store at ${location.phone}.`,
+    },
+    {
+      question: `Do you offer same-day phone repair in ${location.city}?`,
+      answer: `Yes. Most screen replacements, battery replacements, and charging port repairs at our ${location.name} store are finished the same day, often while you shop.`,
+    },
+    {
+      question: `What devices can you repair at ${location.name}?`,
+      answer: `Our ${location.city} technicians repair iPhone, Samsung Galaxy, Google Pixel, iPad and other tablets, MacBook and Windows laptops, Apple Watch, and game consoles.`,
+    },
+    {
+      question: `Do I need an appointment at the ${location.name} store?`,
+      answer: `No appointment is needed. Walk-ins are welcome during store hours (${hours}). Calling ahead lets us confirm your part is in stock.`,
+    },
+    {
+      question: "Do your repairs come with a warranty?",
+      answer: "Every repair includes a 30-day parts and labor warranty, and we use quality-tested parts on all devices.",
+    },
+    {
+      question: `Do you serve customers near ${location.city}?`,
+      answer: `Yes. Customers visit our ${location.name} store from ${location.nearby.join(", ")} and across the ${location.city} area.`,
+    },
+  ]
+}
+
+export function locationMetadata(slug: string): Metadata {
+  const location = getLocation(slug)
+  if (!location) return {}
+
+  const path = `/locations/${location.slug}`
+  const title = `Phone Repair ${location.name}, ${location.city} ${location.state} | ${SITE_NAME}`
+  const description = locationDescription(location)
+  const image = { url: location.image, alt: `Mobile Care USA phone repair store at ${location.name}` }
+  const { city, name } = location
+
+  return {
+    title: { absolute: title },
+    description,
+    keywords: [
+      `phone repair ${name}`,
+      `mobile phone repair in ${name}`,
+      `phone repair ${city} ${location.state}`,
+      `cell phone repair ${city}`,
+      `iPhone repair ${city}`,
+      `iPhone screen repair ${city}`,
+      `Samsung repair ${city}`,
+      `iPad repair ${city}`,
+      `tablet repair ${city}`,
+      `laptop repair ${city}`,
+      `MacBook repair ${city}`,
+      `smartwatch repair ${city}`,
+      `cracked screen repair ${city}`,
+      `battery replacement ${city}`,
+      `phone repair near ${name}`,
+      `pre-owned phones ${city}`,
+      ...location.nearby.map((area) => `phone repair ${area}`),
+    ],
+    alternates: { canonical: path },
+    openGraph: {
+      title,
+      description,
+      url: path,
+      siteName: SITE_NAME,
+      locale: "en_US",
+      type: "website",
+      images: [image],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [image.url] },
+    other: {
+      "geo.region": `US-${location.state}`,
+      "geo.placename": city,
+      "geo.position": `${location.geo.lat};${location.geo.lng}`,
+      ICBM: `${location.geo.lat}, ${location.geo.lng}`,
+    },
+  }
+}
+
 export function locationSchema(location: StoreLocation) {
   const url = `${SITE_URL}/locations/${location.slug}`
   return [
@@ -61,10 +152,14 @@ export function locationSchema(location: StoreLocation) {
       "@type": "MobilePhoneStore",
       "@id": `${url}#store`,
       name: `${SITE_NAME} – ${location.name}`,
+      description: locationDescription(location),
       url,
       image: location.image,
       telephone: location.phone.replace(/\s+/g, ""),
       priceRange: "$$",
+      geo: { "@type": "GeoCoordinates", latitude: location.geo.lat, longitude: location.geo.lng },
+      areaServed: [location.city, ...location.nearby].map((name) => ({ "@type": "City", name })),
+      containedInPlace: { "@type": "ShoppingCenter", name: location.name },
       address: {
         "@type": "PostalAddress",
         streetAddress: location.address,
@@ -85,6 +180,15 @@ export function locationSchema(location: StoreLocation) {
       { name: "Locations", path: "/locations" },
       { name: location.name, path: `/locations/${location.slug}` },
     ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: locationFaqs(location).map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
   ]
 }
 

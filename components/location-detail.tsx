@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock, ArrowRight, ChevronRight, CheckCircle2 } from "lu
 import { Reveal } from "@/components/reveal"
 import { services } from "@/lib/services"
 import type { StoreLocation } from "@/lib/locations"
+import { locationFaqs } from "@/lib/seo"
 
 const highlights = [
   "Walk-ins welcome — most repairs done same day",
@@ -205,6 +206,52 @@ export function LocationDetail({ location }: { location: StoreLocation }) {
               )
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Areas served + FAQs */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-mint">Areas we serve</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-brand-dark text-balance">
+              Phone repair near {location.city}, {location.state}
+            </h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              Our {location.name} store is a convenient stop for iPhone, Samsung, iPad, and laptop repairs for customers
+              across {location.city} and the surrounding communities.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {[location.city, ...location.nearby].map((area) => (
+                <li
+                  key={area}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm text-gray-700"
+                >
+                  <MapPin className="h-3.5 w-3.5 text-brand-mint" aria-hidden="true" />
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={120}>
+            <h2 className="text-2xl font-bold text-brand-dark">
+              {location.name} repair FAQs
+            </h2>
+            <div className="mt-6 divide-y divide-gray-100 rounded-2xl border border-gray-100 bg-white shadow-sm">
+              {locationFaqs(location).map((faq) => (
+                <details key={faq.question} className="group p-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-brand-dark [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-base">{faq.question}</h3>
+                    <ChevronRight
+                      className="h-5 w-5 flex-shrink-0 text-brand-mint transition-transform group-open:rotate-90"
+                      aria-hidden="true"
+                    />
+                  </summary>
+                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
