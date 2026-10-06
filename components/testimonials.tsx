@@ -1,5 +1,5 @@
 import { SectionHeading } from "@/components/section-heading";
-import { ElfsightReviews } from "@/components/elfsight-reviews";
+import { GoogleReviews } from "@/components/google-reviews";
 
 export function Testimonials({ className = "" }) {
   return (
@@ -8,11 +8,10 @@ export function Testimonials({ className = "" }) {
         <SectionHeading
           eyebrow="Reviews"
           title="What our customers say"
-          subtitle="Thousands of Atlanta locals trust Mobile Care to keep their devices running. Here's what they think."
+          subtitle="Thousands of customers trust Mobile Care to keep their devices running. Here's what they think."
           className="mb-12"
         />
-        {/* Elfsight Google Reviews Widget */}
-        <ElfsightReviews />
+        <GoogleReviews />
       </div>
     </section>
   );

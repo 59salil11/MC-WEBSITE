@@ -1,6 +1,6 @@
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
-import { ElfsightReviews } from "@/components/elfsight-reviews"
+import { GoogleReviews } from "@/components/google-reviews"
 
 export function ServicesReviews({ className = "" }: { className?: string }) {
   return (
@@ -14,7 +14,7 @@ export function ServicesReviews({ className = "" }: { className?: string }) {
             className="mb-12"
           />
         </Reveal>
-        <ElfsightReviews />
+        <GoogleReviews />
       </div>
     </section>
   )
