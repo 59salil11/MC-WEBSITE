@@ -73,6 +73,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} bg-background`}>
       <head>
+        {/* Elfsight's reviews widget resizes its own container inside a ResizeObserver callback, which
+            triggers the "ResizeObserver loop completed" error. Running callbacks on the next animation
+            frame moves those layout changes outside the observation cycle, so the loop never occurs.
+            This must run before any third-party script creates an observer. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var RO=window.ResizeObserver;if(!RO||RO.__deferred)return;var D=class extends RO{constructor(cb){super(function(entries,observer){requestAnimationFrame(function(){cb(entries,observer)})})}};D.__deferred=true;window.ResizeObserver=D;})();`,
+          }}
+        />
+
         {/* Google Tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-P17FFSKJVN"></script>
         <script
