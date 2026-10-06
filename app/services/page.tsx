@@ -10,6 +10,8 @@ import { SectionHeading } from "@/components/section-heading"
 import { ServicesReviews } from "@/components/services-reviews"
 import { services } from "@/lib/services"
 
+export const revalidate = 43200
+
 export const metadata: Metadata = {
   title: "Device Repair Services in Atlanta, GA | Mobile Care USA",
   description:
