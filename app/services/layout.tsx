@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Mobile, Tablet & Laptop Repair Services in Atlanta, Georgia | Mobile Care USA",
   description:
-    "Get expert mobile, tablet, and laptop repair services in Atlanta, Georgia with Mobile Care USA. From cracked screens and battery replacements to software fixes and diagnostics, our certified technicians deliver fast, affordable, and reliable repairs for iPhone, Samsung, MacBook, iPad, and more. Same-day service and trusted support to keep your devices running smoothly.",
+    "Get expert mobile, tablet, and laptop repair services across Georgia, Virginia, North Carolina, and Michigan with Mobile Care USA. From cracked screens and battery replacements to software fixes and diagnostics, our certified technicians deliver fast, affordable, and reliable repairs for iPhone, Samsung, MacBook, iPad, and more. Same-day service and trusted support to keep your devices running smoothly.",
   keywords: [
     "Mobile Phone Repair in Atlanta, Georgia",
     "iPhone repair in Atlanta, Georgia",
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Mobile, Tablet & Laptop Repair Services in Atlanta, Georgia | Mobile Care USA",
     description:
-      "Get expert mobile, tablet, and laptop repair services in Atlanta, Georgia with Mobile Care USA. From cracked screens and battery replacements to software fixes and diagnostics, our certified technicians deliver fast, affordable, and reliable repairs for iPhone, Samsung, MacBook, iPad, and more. Same-day service and trusted support to keep your devices running smoothly.",
+      "Get expert mobile, tablet, and laptop repair services across Georgia, Virginia, North Carolina, and Michigan with Mobile Care USA. From cracked screens and battery replacements to software fixes and diagnostics, our certified technicians deliver fast, affordable, and reliable repairs for iPhone, Samsung, MacBook, iPad, and more. Same-day service and trusted support to keep your devices running smoothly.",
     url: "https://mobilecareusa.com/services",
     type: "website",
   },

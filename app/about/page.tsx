@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/section-heading"
 export const metadata: Metadata = {
   title: "About Us | Mobile Care USA",
   description:
-    "Learn the story behind Mobile Care USA — certified technicians, quality parts, and honest pricing across our mall-based repair stores in Georgia, Virginia, and North Carolina.",
+    "Learn the story behind Mobile Care USA — certified technicians, quality parts, and honest pricing across our mall-based repair stores in Georgia, Virginia, North Carolina, and Michigan.",
   alternates: { canonical: "https://mobilecareusa.com/about" },
 }
 
@@ -38,7 +38,7 @@ const values = [
     icon: Clock,
     title: "Respect for your time",
     description:
-      "Most repairs are done the same day in 30–45 minutes. Walk in, grab a coffee, and your device is ready before you know it.",
+      "Most repairs are done the same day, often in under an hour. Walk in, grab a coffee, and your device is ready before you know it.",
   },
   {
     icon: HeartHandshake,
@@ -65,7 +65,7 @@ const process = [
     step: "03",
     title: "Expert repair",
     description:
-      "A certified technician completes most repairs in 30–45 minutes using quality-tested parts — right in the store.",
+      "A certified technician completes most repairs in under an hour using quality-tested parts — right in the store.",
   },
   {
     step: "04",
@@ -100,7 +100,7 @@ export default function AboutPage() {
             <Reveal delay={140}>
               <p className="mt-5 text-lg leading-relaxed text-gray-300 sm:text-xl text-pretty">
                 Mobile Care began with a simple idea: device repair should be fast, honest, and done by people who
-                genuinely care. A decade later, that idea powers six stores across three states.
+                genuinely care. A decade later, that idea powers eight stores across four states.
               </p>
             </Reveal>
           </div>
@@ -212,7 +212,7 @@ export default function AboutPage() {
               Come say hello at your nearest store
             </h2>
             <p className="mt-4 text-lg text-gray-300">
-              Six locations across Georgia, Virginia, and North Carolina — no appointment needed.
+              Eight locations across Georgia, Virginia, North Carolina, and Michigan — no appointment needed.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link href="/locations">

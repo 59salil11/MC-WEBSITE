@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { telephone: true, address: true },
   title: 'Mobile Phone Repair in Atlanta, Georgia, Laptop & Tablet Repair Service in Augusta Mall | Mobile Care USA',
-  description: 'Get fast, reliable mobile phone repair in Atlanta, Georgia with Mobile Care USA. We also specialize in expert laptop and tablet repair services at Augusta Mall, offering screen replacements, battery upgrades, and full diagnostics for iPhone, Samsung, MacBook, and more. Trusted technicians, affordable pricing, and same-day service to keep you connected.',
+  description: 'Fast, reliable phone, tablet, and laptop repair at 8 Mobile Care USA mall stores across Georgia, Virginia, North Carolina, and Michigan. Screen and battery replacements, charging port repairs, and diagnostics for iPhone, Samsung, iPad, MacBook, and more. Same-day service with a 30-day warranty.',
   keywords: [
     'Mobile Phone Repair in Atlanta, Georgia',
     'iPhone repair service in Atlanta, Georgia',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Mobile Phone Repair in Atlanta, Georgia, Laptop & Tablet Repair Service in Augusta Mall | Mobile Care USA',
-    description: 'Get fast, reliable mobile phone repair in Atlanta, Georgia with Mobile Care USA. We also specialize in expert laptop and tablet repair services at Augusta Mall, offering screen replacements, battery upgrades, and full diagnostics for iPhone, Samsung, MacBook, and more. Trusted technicians, affordable pricing, and same-day service to keep you connected.',
+    description: 'Fast, reliable phone, tablet, and laptop repair at 8 Mobile Care USA mall stores across Georgia, Virginia, North Carolina, and Michigan. Screen and battery replacements, charging port repairs, and diagnostics for iPhone, Samsung, iPad, MacBook, and more. Same-day service with a 30-day warranty.',
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: 'en_US',
