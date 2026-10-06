@@ -73,6 +73,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} bg-background`}>
       <head>
+        {/* Registered before any other script so third-party widgets (Elfsight) that resize inside a
+            ResizeObserver callback don't surface the benign "loop completed" warning as an uncaught error. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.addEventListener('error',function(e){if(e.message&&e.message.indexOf('ResizeObserver loop')!==-1){e.stopImmediatePropagation();e.preventDefault();}},true);`,
+          }}
+        />
+
         {/* Google Tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-P17FFSKJVN"></script>
         <script
