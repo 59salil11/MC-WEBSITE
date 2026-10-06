@@ -59,7 +59,6 @@ async function fetchStorePlace(apiKey: string, query: string): Promise<PlacesRes
       "X-Goog-FieldMask": FIELD_MASK,
     },
     body: JSON.stringify({ textQuery: query, maxResultCount: 1, languageCode: "en" }),
-    cache: "no-store",
   })
   if (!res.ok) {
     console.error(`Google Places request failed (${res.status}) for "${query}"`)

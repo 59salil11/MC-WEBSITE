@@ -11,6 +11,8 @@ import { AccessoriesBrands } from "@/components/accessories-brands"
 import { FAQ } from "@/components/faq"
 import { Footer } from "@/components/footer"
 
+export const revalidate = 43200
+
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
