@@ -73,11 +73,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} bg-background`}>
       <head>
-        {/* Registered before any other script so third-party widgets (Elfsight) that resize inside a
-            ResizeObserver callback don't surface the benign "loop completed" warning as an uncaught error. */}
+        {/* Elfsight's reviews widget resizes its own container inside a ResizeObserver callback, which
+            triggers the "ResizeObserver loop completed" error. Running callbacks on the next animation
+            frame moves those layout changes outside the observation cycle, so the loop never occurs.
+            This must run before any third-party script creates an observer. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.addEventListener('error',function(e){if(e.message&&e.message.indexOf('ResizeObserver loop')!==-1){e.stopImmediatePropagation();e.preventDefault();}},true);`,
+            __html: `(function(){var RO=window.ResizeObserver;if(!RO||RO.__deferred)return;var D=class extends RO{constructor(cb){super(function(entries,observer){requestAnimationFrame(function(){cb(entries,observer)})})}};D.__deferred=true;window.ResizeObserver=D;})();`,
           }}
         />
 
