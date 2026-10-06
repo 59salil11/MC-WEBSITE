@@ -137,6 +137,27 @@
   }
 }
 
+/* Google reviews wall (two opposing infinite rows) */
+.reviews-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: brand-marquee 60s linear infinite;
+}
+.reviews-marquee-reverse {
+  animation-direction: reverse;
+}
+.reviews-marquee:hover .reviews-marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reviews-marquee {
+    overflow-x: auto;
+  }
+  .reviews-marquee-track {
+    animation: none;
+  }
+}
+
 /* Typography for BabyLoveGrowth article HTML */
 .article-content {
   color: #374151;
