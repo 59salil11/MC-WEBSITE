@@ -1,5 +1,7 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Poppins } from 'next/font/google';
+import { JsonLd } from '@/components/json-ld';
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, organizationSchema } from '@/lib/seo';
 import './globals.css';
 
 const inter = Inter({
@@ -15,7 +17,25 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [DEFAULT_OG_IMAGE.url],
+  },
+  formatDetection: { telephone: true, address: true },
   title: 'Mobile Phone Repair in Atlanta, Georgia, Laptop & Tablet Repair Service in Augusta Mall | Mobile Care USA',
   description: 'Get fast, reliable mobile phone repair in Atlanta, Georgia with Mobile Care USA. We also specialize in expert laptop and tablet repair services at Augusta Mall, offering screen replacements, battery upgrades, and full diagnostics for iPhone, Samsung, MacBook, and more. Trusted technicians, affordable pricing, and same-day service to keep you connected.',
   keywords: [
@@ -37,16 +57,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mobile Phone Repair in Atlanta, Georgia, Laptop & Tablet Repair Service in Augusta Mall | Mobile Care USA',
     description: 'Get fast, reliable mobile phone repair in Atlanta, Georgia with Mobile Care USA. We also specialize in expert laptop and tablet repair services at Augusta Mall, offering screen replacements, battery upgrades, and full diagnostics for iPhone, Samsung, MacBook, and more. Trusted technicians, affordable pricing, and same-day service to keep you connected.',
-    url: 'https://mobilecareusa.com',
-    siteName: 'Mobile Care',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Mobile Care',
-      },
-    ],
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: 'en_US',
+    images: [DEFAULT_OG_IMAGE],
     type: 'website',
   },
 };
@@ -73,26 +87,7 @@ export default function RootLayout({
         />
 
         {/* Structured Data (Schema.org) */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Best Phone Repair Shop in Georgia",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Atlanta",
-            "addressRegion": "GA",
-            "addressCountry": "USA"
-          },
-          "service": [
-            "Phone screen repair Atlanta",
-            "iPhone repair near me",
-            "Samsung screen repair Atlanta",
-            "Fast phone repair in Atlanta",
-            "Cell phone battery replacement Atlanta",
-            "Best phone repair shop in Georgia"
-          ],
-          "url": "https://mobilecareusa.com"
-        })}} />
+        <JsonLd data={organizationSchema()} />
 
       </head>
       <body className="font-sans antialiased">{children}</body>
