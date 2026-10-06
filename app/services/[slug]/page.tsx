@@ -65,10 +65,21 @@ export default async function ServiceDetailPage({
     url: `https://mobilecareusa.com/services/${service.slug}`,
   }
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  }
+
   return (
     <main className="min-h-screen">
       <Nav />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-dark pt-24">
@@ -163,6 +174,34 @@ export default async function ServiceDetailPage({
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Glossary */}
+      <section className="bg-white pb-16 sm:pb-24" aria-labelledby="glossary-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-brand-mintDark">
+              <span className="h-px w-6 bg-brand-mint" aria-hidden="true" />
+              Tech terms, explained
+            </span>
+            <h2
+              id="glossary-heading"
+              className="mt-3 font-display text-2xl font-bold tracking-tight text-brand-dark sm:text-3xl text-balance"
+            >
+              What our technicians mean
+            </h2>
+          </Reveal>
+          <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {service.glossary.map((item, index) => (
+              <Reveal key={item.term} variant="fade-up" delay={index * 80}>
+                <div className="h-full rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                  <dt className="font-display text-base font-bold text-brand-dark">{item.term}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-gray-600">{item.definition}</dd>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </section>
 
