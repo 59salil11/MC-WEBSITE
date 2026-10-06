@@ -6,7 +6,7 @@ import { Shield, Clock, Star, ArrowRight, MapPin, CheckCircle2 } from "lucide-re
 import { Button } from "@/components/ui/button";
 
 const trustPoints = [
-  { icon: Clock, label: "Most repairs in 30 minutes" },
+  { icon: Clock, label: "Most repairs in under an hour" },
   { icon: Shield, label: "30-day warranty on every fix" },
   { icon: CheckCircle2, label: "No appointment needed" },
 ];

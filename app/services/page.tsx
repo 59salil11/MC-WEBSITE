@@ -31,7 +31,7 @@ const trustFactors = [
   {
     icon: Clock,
     title: "Fast Turnaround",
-    description: "Most repairs are completed in 30–45 minutes, minimizing your downtime.",
+    description: "Most repairs are completed in under an hour, minimizing your downtime.",
   },
   {
     icon: Wallet,
@@ -162,7 +162,7 @@ export default function ServicesPage() {
               Need a repair? Get in touch now
             </h2>
             <p className="mt-4 text-lg text-gray-300">
-              Most repairs completed in 30–45 minutes. Walk in to your nearest location today.
+              Most repairs completed in under an hour. Walk in to your nearest location today.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link href="/locations">

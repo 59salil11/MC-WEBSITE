@@ -159,8 +159,8 @@ export const locations: StoreLocation[] = [
   },
   {
     slug: "great-lakes-crossing",
-    name: "Great Lakes Mall",
-    heading: "Mobile Phone Repair in Great Lakes Mall",
+    name: "Great Lakes Crossing",
+    heading: "Mobile Phone Repair in Great Lakes Crossing",
     address: "4000 Baldwin Rd",
     city: "Auburn Hills",
     state: "MI",

@@ -6,7 +6,7 @@ const reasons = [
   {
     icon: Clock,
     title: "Same-Day Service",
-    description: "Most repairs are completed in 30–45 minutes, so you're never without your device for long.",
+    description: "Most repairs are completed in under an hour, so you're never without your device for long.",
   },
   {
     icon: BadgeCheck,
