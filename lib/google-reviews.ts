@@ -69,10 +69,7 @@ async function fetchStorePlace(apiKey: string, query: string): Promise<PlacesRes
   return data.places?.[0] ?? null
 }
 
-async function loadReviews(): Promise<ReviewsData | null> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY
-  if (!apiKey) return null
-
+async function loadReviews(apiKey: string): Promise<ReviewsData> {
   const results = await Promise.all(
     locations.map(async (store) => {
       const query = `Mobile Care ${store.name}, ${store.address}, ${store.city}, ${store.state} ${store.zip}`
@@ -118,7 +115,10 @@ async function loadReviews(): Promise<ReviewsData | null> {
     }
   }
 
-  if (reviews.length === 0 && stores.length === 0) return null
+  // Throwing keeps unstable_cache from storing an empty result for the full revalidate window.
+  if (reviews.length === 0 && stores.length === 0) {
+    throw new Error("Google Places returned no ratings or reviews for any store")
+  }
 
   reviews.sort((a, b) => b.publishTime.localeCompare(a.publishTime))
 
@@ -129,7 +129,18 @@ async function loadReviews(): Promise<ReviewsData | null> {
   return { reviews, stores, averageRating, totalReviews }
 }
 
-export const getGoogleReviews = unstable_cache(loadReviews, ["google-reviews-v1"], {
+const getCachedReviews = unstable_cache(loadReviews, ["google-reviews-v2"], {
   revalidate: 60 * 60 * 12,
   tags: ["google-reviews"],
 })
+
+export async function getGoogleReviews(): Promise<ReviewsData | null> {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY
+  if (!apiKey) return null
+  try {
+    return await getCachedReviews(apiKey)
+  } catch (error) {
+    console.error("Failed to load Google reviews", error)
+    return null
+  }
+}
