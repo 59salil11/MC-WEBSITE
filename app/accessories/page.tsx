@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/section-heading"
 import { Stagger, StaggerItem, VelocityMarquee } from "@/components/motion/primitives"
 import { BrandMark, ClosingCta } from "@/components/home/sections"
 import { accessoryBrands, monoLogo } from "@/lib/brands"
+import { AccessoryAssembly } from "@/components/accessories/assembly"
 
 export const metadata: Metadata = {
   title: "Device Accessories | Mobile Care USA",
@@ -54,6 +55,20 @@ export default function AccessoriesPage() {
           <Fact label="Fitted in store" value="Yes" />
           <Fact label="Stores stocking them" value="8" />
         </PageHeader>
+
+        <section className="relative overflow-hidden bg-ink py-20 text-white sm:py-28">
+          <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+            <AccessoryAssembly>
+              <SectionHeading
+                light
+                eyebrow="Our best sellers"
+                title="Built to work together."
+                subtitle="A clear MagSafe case, a magnetic charger that snaps right on, and privacy glass for the screen. We fit all three in store."
+              />
+            </AccessoryAssembly>
+          </div>
+        </section>
 
         <section aria-label="Brands we carry" className="space-y-8 bg-ink py-14">
           <VelocityMarquee baseVelocity={-2}>
