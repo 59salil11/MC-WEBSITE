@@ -196,20 +196,11 @@ html.lenis body {
 }
 
 /* Product shots: fade the photo's edges into the page so the studio
-   background never shows as a box, whatever color the section is. */
+   background never shows as a box. */
 .feather {
   -webkit-mask-image: radial-gradient(closest-side, #000 42%, transparent 96%);
   mask-image: radial-gradient(closest-side, #000 42%, transparent 96%);
 }
-.feather-rect {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent),
-    linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent),
-    linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
-  mask-composite: intersect;
-}
-
 /* Repair search: a soft light glides along the bottom edge while idle.
    Transform-only, so it never repaints. */
 .search-glow {

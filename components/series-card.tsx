@@ -10,7 +10,7 @@ export function SeriesCard({ series }: { series: PreOwnedSeries }) {
           alt={`${series.name} lineup`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-contain p-6 feather-rect transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-hover:scale-105"
+          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
         />
       </div>
       <h3 className="mt-6 font-display text-2xl font-semibold text-ink">{series.name}</h3>
